@@ -244,3 +244,41 @@ body.dark-mode .download-btn:hover {
     }
 }
 
+/* تنسيق حاوية الغلاف */
+.book-cover-container {
+    margin-bottom: 25px;
+    perspective: 1000px; /* لإعطاء شعور بالعمق */
+}
+
+.book-cover {
+    width: 180px;           /* عرض المستطيل العمودي */
+    height: 270px;          /* طول المستطيل (نسبة الكتاب 2:3) */
+    border: 4px solid #ffffff; /* البوردر الأبيض الذي طلبته */
+    border-radius: 8px;     /* حواف دائرية بسيطة */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5); /* ظل لإبراز الغلاف */
+    object-fit: cover;      /* لضمان عدم تمدد الصورة داخل الإطار */
+    
+    /* أنيميشن الدخول */
+    animation: float 3s ease-in-out infinite; 
+}
+
+/* أنيميشن حركة عائمة تجعل الغلاف يتحرك ببطء للأعلى والأسفل */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* جعل الغلاف أصغر في الموبايل ليناسب الشاشة */
+@media (max-width: 768px) {
+    .book-cover {
+        width: 140px;
+        height: 210px;
+        border-width: 3px;
+    }
+    
+    .hero {
+        height: auto;
+        padding: 100px 0 60px 0; /* مساحة كافية للغلاف والنص */
+    }
+}
