@@ -282,3 +282,7 @@ body.dark-mode .download-btn:hover {
         padding: 100px 0 60px 0; /* مساحة كافية للغلاف والنص */
     }
 }
+
+.potato {
+  color: var(--primary-blue);
+}
