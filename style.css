@@ -1,0 +1,409 @@
+/* المتغيرات الأساسية للألوان */
+:root {
+    --primary-blue: #003366;
+    --accent-blue: #00509d;
+    --soft-white: #f8f9fa;
+    --text-dark: #2d3436;
+    --transition: all 0.4s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--soft-white);
+    color: var(--text-dark);
+    line-height: 1.8;
+}
+
+/* الناف بار */
+nav {
+    background-color: var(--primary-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li { margin-left: 20px; }
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+/* قسم الهيرو (العنوان الرئيسي) */
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), 
+                url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1546&auto=format&fit=crop');
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+/* منطقة القراءة */
+.container {
+    max-width: 900px;
+    margin: -80px auto 50px;
+    padding: 0 20px;
+}
+
+.reading-area {
+    background: white;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.chapter-title {
+    font-family: 'Cairo', sans-serif;
+    color: var(--primary-blue);
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 2px solid var(--soft-white);
+    padding-bottom: 15px;
+}
+
+.novel-body {
+    font-family: 'Amiri', serif;
+    font-size: 1.4rem;
+    text-align: justify;
+    color: #333;
+}
+
+/* أنيميشن */
+.animate-text {
+    animation: slideDown 1s ease-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* أدوات التحكم */
+.reading-tools {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    background: var(--accent-blue);
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+button:hover { background: var(--primary-blue); transform: scale(1.05); }
+
+/* الوضع الليلي */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .reading-area {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode .novel-body { color: #ccc; }
+
+/* تنسيق زر التحميل */
+.download-btn {
+    display: inline-block;
+    background-color: #ffffff; /* خلفية بيضاء */
+    color: var(--primary-blue); /* نص أزرق */
+    border: 2px solid var(--primary-blue);
+    padding: 8px 25px;
+    border-radius: 20px;
+    text-decoration: none; /* إزالة الخط تحت اللينك */
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    transform: translateY(-3px); /* حركة بسيطة للأعلى عند الوقوف عليه */
+    box-shadow: 0 5px 15px rgba(0, 51, 102, 0.2);
+}
+
+/* في الوضع الليلي */
+body.dark-mode .download-btn {
+    background-color: transparent;
+    color: #00a8ff;
+    border-color: #00a8ff;
+}
+
+body.dark-mode .download-btn:hover {
+    background-color: #00a8ff;
+    color: #121212;
+}
+
+/* --- تعديلات التجاوب مع الهواتف --- */
+@media (max-width: 768px) {
+    /* تصغير الهيدر ليتناسب مع الهاتف */
+    nav {
+        padding: 10px 5%;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-links li {
+        margin-left: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    /* تعديل قسم العنوان الرئيسي */
+    .hero {
+        height: 50vh;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        padding: 0 10px;
+    }
+
+    /* أهم تعديل: جعل الحاوية تأخذ عرض الشاشة بالكامل تقريباً */
+    .container {
+        margin-top: -40px; /* تقليل المسافة العلوية */
+        padding: 0 10px;
+    }
+
+    .reading-area {
+        padding: 25px 15px; /* تقليل الحواف الداخلية */
+        border-radius: 8px;
+    }
+
+    .novel-body {
+        font-size: 1.2rem; /* تصغير الخط قليلاً ليناسب شاشة الموبايل */
+        line-height: 1.7;
+    }
+
+    /* ترتيب الأزرار لتكون فوق بعضها أو بشكل مريح */
+    .reading-tools {
+        flex-direction: column; /* جعل الأزرار تحت بعضها */
+        gap: 10px;
+    }
+
+    .reading-tools button, 
+    .download-btn {
+        width: 100%; /* الأزرار تأخذ عرض الشاشة بالكامل */
+        text-align: center;
+    }
+}
+
+/* تحسين إضافي للشاشات الصغيرة جداً (مثل iPhone SE) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+    
+    .chapter-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* تنسيق حاوية الغلاف */
+.book-cover-container {
+    margin-bottom: 25px;
+    perspective: 1000px; /* لإعطاء شعور بالعمق */
+}
+
+.book-cover {
+    width: 180px;           /* عرض المستطيل العمودي */
+    height: 270px;          /* طول المستطيل (نسبة الكتاب 2:3) */
+    border: 4px solid #ffffff; /* البوردر الأبيض الذي طلبته */
+    border-radius: 8px;     /* حواف دائرية بسيطة */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5); /* ظل لإبراز الغلاف */
+    object-fit: cover;      /* لضمان عدم تمدد الصورة داخل الإطار */
+    
+    /* أنيميشن الدخول */
+    animation: float 3s ease-in-out infinite; 
+}
+
+/* أنيميشن حركة عائمة تجعل الغلاف يتحرك ببطء للأعلى والأسفل */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* جعل الغلاف أصغر في الموبايل ليناسب الشاشة */
+@media (max-width: 768px) {
+    .book-cover {
+        width: 140px;
+        height: 210px;
+        border-width: 3px;
+    }
+    
+    .hero {
+        height: auto;
+        padding: 100px 0 60px 0; /* مساحة كافية للغلاف والنص */
+    }
+}
+
+/* --- تنسيق صفحة المكتبة (الواجهة) --- */
+
+/* الشبكة الحاوية للكروت */
+.novels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px;
+    padding: 20px;
+    margin-top: -60px; /* لرفع الكروت قليلاً فوق الخلفية */
+    position: relative;
+    z-index: 10;
+}
+
+/* تصميم الكارت نفسه */
+.novel-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* تأثير عند مرور الماوس على الكارت */
+.novel-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 51, 102, 0.25);
+}
+
+/* الرابط المحيط بالكارت */
+.novel-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* حاوية الصورة (لضمان شكل موحد) */
+.card-image {
+    width: 100%;
+    height: 380px;
+    background-color: #f4f7f6; /* خلفية رمادية فاتحة جداً */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* تنسيق صورة الغلاف داخل الكارت */
+.card-image img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* ظل للكتاب نفسه */
+    border-radius: 5px;
+    transition: transform 0.5s ease;
+}
+
+/* تكبير بسيط للغلاف عند الوقوف عليه */
+.novel-card:hover .card-image img {
+    transform: scale(1.08) rotate(2deg);
+}
+
+/* معلومات الرواية أسفل الصورة */
+.card-info {
+    padding: 25px;
+    text-align: center;
+    background: white;
+    flex-grow: 1; /* لجعل النصوص تأخذ باقي المساحة */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-info h3 {
+    color: var(--primary-blue);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.card-info p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+/* الشارة "اقرأ الآن" */
+.read-badge {
+    background-color: var(--accent-blue);
+    color: white;
+    padding: 8px 25px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.novel-card:hover .read-badge {
+    background-color: var(--primary-blue);
+}
+
+/* --- تعديلات الوضع الليلي للواجهة --- */
+body.dark-mode .novel-card {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark-mode .card-image {
+    background-color: #2d2d2d;
+}
+
+body.dark-mode .card-info h3 {
+    color: #fff;
+}
+
+body.dark-mode .card-info p {
+    color: #bbb;
+}
