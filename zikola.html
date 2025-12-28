@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أرض زيكولا | القراءة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="FAVICON.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">أرض زيكولا</div>
+        <ul class="nav-links">
+            <li><a href="home.html">العودة للمكتبة</a></li> <li><button id="theme-toggle">الوضع الليلي</button></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="book-cover-container">
+                <img src="zikola-cover.webp" alt="غلاف أرض زيكولا" class="book-cover">
+            </div>
+            <h1 class="animate-text">أرض زيكولا</h1>
+            <p class="animate-text-delay">تأليف: عمرو عبد الحميد</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="reading-area">
+            <h2 class="chapter-title">المقدمة</h2>
+            <div id="novel-content" class="novel-body">
+                هل جربت أن تتعامل بعملة مختلفة عن العملات الورقية.. ليست معدنية وليست ذهبية... الثمن هنا ذكاء.. 
+                إن عملة أرض زيكولا هي وحدات الذكاء.. ومن يكون ذكياً هو الغني.. أما الفقير فهو الأقل ذكاء..
+                يقولون: الحب أعمى.. وهو يقول: (أصابني العمى حين أحببت).. ولكن ماذا يفعل؟ ها هو قد أحب وحدث ما حدث.
+            </div>
+            
+            <div class="reading-tools">
+                <button onclick="changeFontSize(1)">تكبير الخط +</button>
+                <button onclick="changeFontSize(-1)">تصغير الخط -</button>
+                <a href="ارض زيكولا.pdf" download="ارض زيكولا.pdf" class="download-btn">
+                    تحميل الرواية (PDF) 📥
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
